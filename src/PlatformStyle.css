@@ -3,14 +3,11 @@
 }
 
 .title-comp {
-    background-color: #436c4b;
     color: white;
     text-align: center;
-
-    margin-left: 80vmin;
-    margin-right: 80vmin;
+    background-color: grey;
     border-radius: 10vmin;
-
+    padding-bottom: 1vmin;
 }
 
 .center-block {

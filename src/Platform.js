@@ -3,7 +3,6 @@ import './PlatformStyle.css';
 
 function initPage() 
 {
-    readContentFromSite()
     return( 
         <div class="main-container">
             <h1 class="title-comp">Gospel of the Day</h1>

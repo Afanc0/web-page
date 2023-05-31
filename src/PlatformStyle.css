@@ -7,10 +7,10 @@
     color: white;
     text-align: center;
 
-    margin-left: 610px;
-    margin-right: 610px;
-    border-radius: 10px;
-    padding-bottom: 5px;
+    margin-left: 80vmin;
+    margin-right: 80vmin;
+    border-radius: 10vmin;
+
 }
 
 .center-block {
@@ -20,10 +20,8 @@
 
 .horizontal-line {
   width: 80%;
-  height: 2px;
+  height: .2vmin;
   background-color: black; 
-  margin-top: 10px; 
-  margin-left: 150px;
-  margin-right: 100px;
+  margin-top: 1vmin; 
 }
 

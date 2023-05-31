@@ -6,6 +6,7 @@ function initPage()
     return( 
         <div class="main-container">
             <h1 class="title-comp">Gospel of the Day</h1>
+            <p style={{textAlign:"center"}}>Lk 1:39-56</p>
             <hr class="horizontal-line"></hr>
 
             <p class="center-block" >

@@ -17,7 +17,7 @@ function App() {
 
   return (
     <div >
-      <h1 style={{textAlign:"center"}}>Hello, Bluecobra31 Stinks!</h1>
+      <h1 style={{textAlign:"center"}}>Hello, Bluecobra31 Stinks!!!</h1>
       <h2 style={{textAlign:"center"}}>Today's Gospel</h2>
       <p style={{textAlign:"center"}}>Peter began to say to Jesus, <br/>
             'We have given up everything and followed you." <br/>
@@ -31,7 +31,8 @@ function App() {
             with persecutions, and eternal life in the age to come. <br/>
             But many that are first will be last, and the last will be first."</p>
     </div>
-  );
+  ); 
   
 }
+
 export default App;

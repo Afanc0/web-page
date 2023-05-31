@@ -1,20 +1,6 @@
 import React from 'react';
 import './PlatformStyle.css';
 
-function readContentFromSite() 
-{
-    fetch('https://www.catholic.org/bible/daily_reading/')
-    .then(response => response.text())
-    .then(data => {
-        // `data` contains the text content of the website
-        console.log(data);
-    })
-    .catch(error => {
-        //alert("Content Couldn't Loaded\nTry Reloading the Page :)")
-        console.error(error);
-    });
-}
-
 function initPage() 
 {
     readContentFromSite()

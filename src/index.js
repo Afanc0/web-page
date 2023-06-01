@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 //import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Platform from './Platform';
+import HostPage from './HostPageCont/HostPage';
+//import Platform from './Platform';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Platform />
+    <HostPage />
   </React.StrictMode>
 );
 

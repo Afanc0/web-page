@@ -1,126 +1,233 @@
-.container {
-    background-color: silver;
-    color: white;
-    font-size: 5vmin;
-    font-family: SimSun;
-    background-image: url('./mounbg.png');
+.bgnd {
+    background-image: url('./altbg.png');
     background-repeat: no-repeat;
+    background-position: center center;
     background-size: cover;
-    height: 100vh; /* Added height to make the background cover the entire viewport */
-    margin: 0; /* Added to remove default margin */
-    padding: 0; /* Added to remove default padding */
-    display: flex; /* Added to enable centering of content */
-    justify-content: center; /* Added to horizontally center content */
-    align-items: center; /* Added to vertically center content */
+    height: 90vh; 
+
+    /*Bug: Image Does't Cover the Entire Page like it Should*/
+    /*Weird Bug Introduced After Adding Router, UNSURE*/
+    /*This Margin Configuration Solved the issue*/
+    margin: 2vh -1.1vh -1.1vh -1.1vh; 
+    
 }
 
-#h-line {
-    width: 92%;
-    margin-top: -3%;
-    margin-left: 0%;
+.bgnd.night {
+    background-image: url('./newbg.png');
 }
 
-#header-block {
-    background: linear-gradient(to bottom, #000000, #333333);
-    width: 125vmin;
-    height: 100vmin;
-
-    padding-left: 10vmin;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    background-clip: padding-box;
-
-    margin-left: 100vmin;
+header {
+    height: 10vh;
+    width: 100%;
 }
 
-#lec-text {
-    font-size: 2.5vmin;
+.titleName {
+    position: fixed;
+    margin-left: 7vh;
+    top: -0.5vh;
+    color: white;
+
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 5vh;
 }
 
-#text-comp {
-    font-size: 2vmin;
-}
-
-/*Slider Switch*/
-
-.switch {
+.titledesign {
     position: absolute;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-    margin-left: 120vmin;
-    margin-top: -81.5vmin;
+    letter-spacing: 3px;
+    font-size: 10vh;
+    margin-left: 5vh;
+}
+
+.timedesign {
+    position: fixed;
+    margin-left: 80vh;
+    margin-top: 30vh;
+    font-size: 8vh;
+}
+
+/*Icon Design*/
+.menuIcon {
+    position: absolute;
+    margin-top: 4vh;
+    margin-left: 95%;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.iconPart1, .iconPart2, .iconPart3 {
+    width: 35px;
+    height: 4px;
+    background-color: white;
+    margin: 6px 0;
+}
+
+.change.iconPart1 {
+    transform: translate(0, 10px) rotate(45deg);
+    background-color: black;
+}
+
+.change.iconPart2 {
+    opacity: 0;
+}
+
+.change.iconPart3 {
+    transform: translate(0px, -10px) rotate(-45deg);
+    background-color: black;
+} 
+
+/*Icon Design*/
+
+section {
+    position: absolute;
+    overflow: hidden;
+    right: 0;
+    top: -20vh;
+    bottom: -20vh;
+    width: 100%;
+    height: 120vh;
 }
   
-.switch input { 
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
+.menuBody {
     position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
     right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
 
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
+    margin-top: 22vh;
+
     background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
+    
+    height: 90vh;
+    width: 40vh;
+
+    /* Flexbox Centering */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: transform 0.5s;
 }
 
-input:checked + .slider {
-    background-color: #3e3c3c;
+.menuBody.visible {
+    transform: translateX(0%);
+}
+  
+.menuBody.hidden {
+    transform: translateX(100%);
 }
 
-input:focus + .slider {
-    box-shadow: 0 0 1px #3e3c3c;
+.menuOptions {
+    list-style: none;
+    padding-left: 0;
+    font-size: 3.5vh;
+    margin-top: -25vh;
+    margin-left: 4vh;
 }
 
-input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+li {
+    padding-bottom: 0vh;
 }
 
-.slider.round {
-    border-radius: 34px;
-}
-
-.slider.round:before {
-    border-radius: 50%;
-}
-
-
-/*Alternative Toggles*/
-.black-text {
+.menu-button--design {
+    text-decoration: none;
     color: black;
 }
 
-.white-text {
-    color: white;
+.menu-button {
+    cursor: pointer;
+    font-size: 4vh;
+
+    opacity: 0.5;
+    text-transform: capitalize;
+    letter-spacing: .2vh;
+    font-weight: 400;
 }
 
-#white-header-block {
-    background: linear-gradient(to bottom, #ffffff, #ccc5c5);
-    width: 125vmin;
-    height: 100vmin;
+.menu-button:hover {
+    opacity: 1;
+}
 
-    padding-left: 10vmin;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    background-clip: padding-box;
+.book-icon {
+    position: absolute;
+    background-image: url(bookicon.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    width: 7vh;
+    height: 5vh;
 
-    margin-left: 100vmin;
+    margin-top: -9vh;
+    margin-left: -7.5vh;
+}
+
+.about-icon {
+    position: absolute;
+    background-image: url(abouticon.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    width: 7vh;
+    height: 5vh;
+
+    margin-top: -9vh;
+    margin-left: -7.5vh;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 9%;
+    background-color: white;
+}
+
+.footerContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.designer {
+    opacity: 0.7;
+    text-transform: 1px;
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin: 0px 5px;
+}
+
+/*Mobile Display Configuration: Status -> Not Updated*/
+@media (max-width: 700px) {
+    .titleName {
+        position: fixed;
+        margin-left: 3vh;
+        top: 2.5vh;
+        color: white; 
+        
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 3vh;
+    }
+
+    .titledesign {
+        letter-spacing: 3px;
+        font-size: 5vh;
+        margin-left: 5vh;
+    }
+
+    .menuIcon {
+        position: absolute;
+        margin-top: 4vh;
+        margin-left: 89%;
+    }
+
+    .iconPart {
+        width: 25px;
+        height: 2px;
+        background-color: white;
+        margin: 5px 0;
+    }
+
+    .timedesign {
+        position: fixed;
+        margin-left: 16vh;
+        margin-top: 30vh;
+        font-size: 4vh;
+    }
 }

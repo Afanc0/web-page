@@ -1,97 +1,70 @@
 import React, {useState} from 'react';
+import { Outlet, Link } from "react-router-dom";
+import LiveTimeUpdateFunction from './UpdateTime';
 import './HostPage.css';
-
-const text = `As Jesus was leaving Jericho with his disciples and a sizable crowd,
-Bartimaeus, a blind man, the son of Timaeus,
-sat by the roadside begging.
-On hearing that it was Jesus of Nazareth,
-he began to cry out and say,
-“Jesus, son of David, have pity on me.”
-And many rebuked him, telling him to be silent.
-But he kept calling out all the more, “Son of David, have pity on me.”
-Jesus stopped and said, “Call him.”
-So they called the blind man, saying to him,
-“Take courage; get up, Jesus is calling you.”
-He threw aside his cloak, sprang up, and came to Jesus.
-Jesus said to him in reply, “What do you want me to do for you?”
-The blind man replied to him, “Master, I want to see.”
-Jesus told him, ‘Go your way; your faith has saved you.”
-Immediately he received his sight
-and followed him on the way.`;
+import FooterSection from './Footer';
 
 
+function useSelectedMenuAmination() {
+    const [isClicked, setIsClicked] = useState(false);
+    const handleClick = () => { setIsClicked(!isClicked);};
+    const changeStyle = isClicked ? 'change' : '';
+    return [changeStyle, handleClick, isClicked];
+}
 
-const fetchAndExtractText = async (url) => {
-    try {
-      const response = await fetch(url);
-      const htmlContent = await response.text();
-  
-      // Log the extracted text
-      console.log(htmlContent);
-    } catch (error) {
-      console.error('Error:', error.message);
-      throw error;
-    }
-  };
-  
-  // Usage
-  const websiteUrl = 'https://evangeli.net/gospel';
-  fetchAndExtractText(websiteUrl)
-    .catch(error => {
-      console.error('Error:', error.message);
-    });
-  
-
-
-
-
-
-
-
-
-
-
-const paragraphs = text.split('\n').map((line, index) => ( //Understand how to edit this and other html
-    <React.Fragment key={index}>
-      {line}
-      <br />
-    </React.Fragment>
-));
-
-const currentDate = () => {
-    const DayValue = new Date();
+function RenderSkeleton() {
+    document.body.style.backgroundColor = "white";
+    const [changeStyle, handleClick, clicked] = useSelectedMenuAmination();
     return (
-        <React.Fragment>
-            {DayValue.getMonth() + 1}/{DayValue.getDate()}/{DayValue.getFullYear()}
-        </React.Fragment>
-    );
-};
+        <div className="bgnd">
+            <LiveTimeUpdateFunction />
+            <div>
+                <header>
+                    <div className="titleName">
+                        <p>
+                            Hello From,<br/>
+                            <span className="titledesign">Resunnect</span>
+                        </p>
+                    </div>
+                    <div className="menuIcon" onClick={handleClick} >
+                        <div className={`iconPart1 ${changeStyle}`}></div>
+                        <div className={`iconPart2 ${changeStyle}`}></div>
+                        <div className={`iconPart3 ${changeStyle}`}></div>
+                    </div>
+                </header>
 
-function DisplayContent() {
+                <section>
+                    <div className={clicked ? `menuBody visible` : "menuBody hidden"}>
+                        {/* Edit the style of the links/contents and display of the menu */}
+                        <div> 
+                            <ul className="menuOptions">
+                                <li>
+                                    <Link to="/GospelReading" className="menu-button--design">
+                                        <div className="menu-button">
+                                            <p>Gospel Reading</p>
+                                        </div>
+                                    </Link>
+                                    <div className="book-icon"></div>
+                                </li>
+                                <li>
+                                    <Link to="/About" className="menu-button--design">
+                                        <div className="menu-button">
+                                            <p>About Page</p>
+                                        </div>
+                                    </Link>
+                                    <div className="about-icon"></div>
+                                </li>
+                            </ul>
+                        </div>
 
-    const [isToggled, setIsToggled] = useState(false);
-
-    const handleToggle = () => {
-        setIsToggled(!isToggled);
-    };
-
-    const textClass = isToggled ? 'white-text' : 'black-text';
-    const bgClass = isToggled ? 'header-block' : 'white-header-block';
-
-    return (
-        <div class="container">
-            <label class="switch">
-                <input type="checkbox" onChange={handleToggle}></input>
-                <span class="slider round"></span>
-            </label>
-            <div id={bgClass}>
-                <h3 className={textClass} >Learning Apostle</h3>
-                <hr id="h-line" />
-                <p id="lec-text" className={textClass}>Gospel of {currentDate()}<br/><br/>Mk 10:46-52</p>
-                <p id="text-comp" className={textClass}>{paragraphs}</p>
+                        <Outlet />
+                    </div>
+                </section>
             </div>
+
+            <FooterSection />
         </div>
     );
-
 }
-export default DisplayContent;
+
+export default RenderSkeleton;
